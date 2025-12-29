@@ -1,0 +1,101 @@
+/* Design System & Reset */
+:root {
+    /* Color Palette - Premium Dark */
+    --hue: 250; /* Deep Indigo/Violet */
+    --bg-dark: hsl(var(--hue), 30%, 8%);
+    --bg-panel: hsl(var(--hue), 25%, 12%);
+    --primary: hsl(var(--hue), 80%, 70%);
+    --accent: hsl(320, 80%, 65%); /* Pink/Magenta accent */
+    
+    /* Text */
+    --text-main: hsl(var(--hue), 10%, 95%);
+    --text-muted: hsl(var(--hue), 10%, 70%);
+
+    /* Glassmorphism Tokens */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    --backdrop-blur: blur(12px);
+
+    /* Spacing & Radius */
+    --radius-lg: 24px;
+    --radius-md: 16px;
+    --radius-sm: 8px;
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+
+    /* Transitions */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(100, 50, 255, 0.15) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(200, 50, 150, 0.1) 0%, transparent 40%);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+#app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-md);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Utilities */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: var(--backdrop-blur);
+    -webkit-backdrop-filter: var(--backdrop-blur);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--radius-lg);
+}
+
+.btn {
+    appearance: none;
+    border: none;
+    background: var(--primary);
+    color: var(--bg-dark);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: transform 0.2s var(--ease-out), filter 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.btn-ghost:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.title-gradient {
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
